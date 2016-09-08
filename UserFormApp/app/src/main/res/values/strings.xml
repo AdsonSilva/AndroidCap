@@ -7,5 +7,6 @@
     <string name="email">Email</string>
     <string name="birthDate">Data de Nascimento</string>
     <string name="save">Salvar</string>
+    <string name="userFormTitle">Cadastro de Usuários</string>
 
 </resources>

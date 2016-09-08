@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="default_padding">16dp</dimen>
+    <dimen name="default_title_size">22sp</dimen>
 
 </resources>
