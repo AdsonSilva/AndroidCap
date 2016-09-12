@@ -78,12 +78,22 @@
             android:layout_toEndOf="@id/seekPercent"
             android:layout_alignBottom="@id/seekPercent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero de Pessoas"
+            android:textColor="@color/grey"
+            android:id="@+id/numPersonsText"
+            android:layout_below="@id/seekText"
+            android:layout_marginTop="10dp"/>
+
         <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/seekPercent"
-            android:layout_alignParentStart="true">
+            android:layout_below="@+id/numPersonsText"
+            android:id="@+id/radioGroup"
+            >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,12 +102,26 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/person2"
                 android:text="2"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/person3"
                 android:text="3"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person4"
+                android:text="4"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person5"
+                android:text="5"/>
         </RadioGroup>
 
     </RelativeLayout>
