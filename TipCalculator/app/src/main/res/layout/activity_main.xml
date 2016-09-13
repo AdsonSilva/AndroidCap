@@ -66,13 +66,14 @@
             android:layout_toEndOf="@id/textPercent"
             android:layout_alignBottom="@id/textPercent"
             android:layout_marginLeft="10dp"
-            android:id="@+id/seekPercent" />
+            android:id="@+id/seekPercent"
+            android:progress="10"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/seekText"
-            android:text="0%"
+            android:text="10%"
             android:textStyle="bold"
             android:textColor="@color/grey"
             android:layout_toEndOf="@id/seekPercent"
@@ -91,14 +92,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/numPersonsText"
             android:id="@+id/radioGroup"
+            android:layout_toEndOf="@id/numPersonsText"
+            android:layout_alignTop="@id/numPersonsText"
             >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person1"
-                android:text="1"/>
+                android:text="1"
+                android:checked="true"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,6 +126,15 @@
                 android:id="@+id/person5"
                 android:text="5"/>
         </RadioGroup>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/btnMore"
+            android:layout_alignBottom="@id/radioGroup"
+            android:layout_toEndOf="@id/radioGroup" />
+
 
     </RelativeLayout>
 
