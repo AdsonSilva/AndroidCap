@@ -44,14 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        btnMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                groupPersons.setVisibility(View.GONE);
-
-            }
-        });
+       
 
 
 

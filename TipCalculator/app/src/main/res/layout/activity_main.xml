@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huawei.tipcalculator.MainActivity"
-    >
+    tools:context="com.example.huawei.tipcalculator.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,7 +43,7 @@
             android:backgroundTint="@color/grey"
             android:textSize="@dimen/ValueSize"
             android:layout_centerHorizontal="true"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,21 +52,22 @@
             android:textColor="@color/grey"
             android:id="@+id/textPercent"
             android:textStyle="bold"
-            android:layout_centerVertical="true"
+            android:layout_below="@id/Edtvalue"
+            android:layout_marginTop="@dimen/marginTopGreen"
 
            />
 
         <SeekBar
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:max="30"
             android:layout_below="@id/Edtvalue"
-            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginTop="@dimen/marginTopGreen"
             android:layout_toEndOf="@id/textPercent"
             android:layout_alignBottom="@id/textPercent"
             android:layout_marginLeft="10dp"
             android:id="@+id/seekPercent"
-            android:progress="10"/>
+            android:progress="10" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,7 +86,8 @@
             android:textColor="@color/grey"
             android:id="@+id/numPersonsText"
             android:layout_below="@id/seekText"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/marginTopGreen"
+            />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -95,48 +96,71 @@
             android:id="@+id/radioGroup"
             android:layout_toEndOf="@id/numPersonsText"
             android:layout_alignTop="@id/numPersonsText"
+
             >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person1"
                 android:text="1"
-                android:checked="true"/>
+                android:checked="true"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"
+
+                />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person2"
                 android:text="2"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person3"
-                android:text="3"/>
+                android:text="3"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person4"
-                android:text="4"/>
+                android:text="4"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person5"
-                android:text="5"/>
+                android:text="5"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnMore"
+                android:text="+"
+                android:buttonTint="@color/grey"
+                android:textColor="@color/grey"/>
+
         </RadioGroup>
 
-        <RadioButton
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:id="@+id/btnMore"
-            android:layout_alignBottom="@id/radioGroup"
-            android:layout_toEndOf="@id/radioGroup" />
-
+            android:layout_toEndOf="@id/numPersonsText"
+            android:layout_below="@id/seekPercent"
+            android:hint="Quantidade"
+            android:textColorHint="@color/grey"
+            android:visibility="gone"/>
 
     </RelativeLayout>
+
 
 
 </RelativeLayout>
