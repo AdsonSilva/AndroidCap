@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/paddinGreen">
+        android:padding="@dimen/paddinGreen"
+        android:id="@+id/layoutGreen">
 
         <ImageView
             android:layout_width="@dimen/icon"
@@ -35,7 +36,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Edtvalue"
+            android:id="@+id/edtValue"
             android:hint="Valor"
             android:layout_below="@id/TextTitle"
             android:textColor="@color/white"
@@ -52,7 +53,7 @@
             android:textColor="@color/grey"
             android:id="@+id/textPercent"
             android:textStyle="bold"
-            android:layout_below="@id/Edtvalue"
+            android:layout_below="@id/edtValue"
             android:layout_marginTop="@dimen/marginTopGreen"
 
            />
@@ -61,7 +62,7 @@
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:max="30"
-            android:layout_below="@id/Edtvalue"
+            android:layout_below="@id/edtValue"
             android:layout_marginTop="@dimen/marginTopGreen"
             android:layout_toEndOf="@id/textPercent"
             android:layout_alignBottom="@id/textPercent"
@@ -96,6 +97,7 @@
             android:id="@+id/radioGroup"
             android:layout_toEndOf="@id/numPersonsText"
             android:layout_alignTop="@id/numPersonsText"
+            android:visibility="visible"
 
             >
             <RadioButton
@@ -153,14 +155,14 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/numPersonsText"
-            android:layout_below="@id/seekPercent"
             android:hint="Quantidade"
+            android:id="@+id/edtPersons"
             android:textColorHint="@color/grey"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/numPersonsText"
+            android:inputType="number"/>
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>

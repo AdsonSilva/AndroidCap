@@ -1,29 +1,39 @@
 package com.example.huawei.tipcalculator;
 
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView textGorjeta;
+    private SeekBar seekGorjeta;
+    private RadioGroup numPessoas;
+    private RadioButton maisPessoas;
+    private TextView numMaisPessoas;
+    private EditText valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SeekBar gorjeta = (SeekBar) findViewById(R.id.seekPercent);
-        final TextView textGorjeta = (TextView) findViewById(R.id.seekText);
-        final RadioButton btnMore = (RadioButton) findViewById(R.id.btnMore);
-        final RadioGroup groupPersons = (RadioGroup) findViewById(R.id.radioGroup);
+        seekGorjeta = (SeekBar) findViewById(R.id.seekPercent);
+        textGorjeta = (TextView) findViewById(R.id.seekText);
+        maisPessoas = (RadioButton) findViewById(R.id.btnMore);
+        numPessoas = (RadioGroup) findViewById(R.id.radioGroup);
+        numMaisPessoas = (EditText) findViewById(R.id.edtPersons);
+        valor = (EditText) findViewById(R.id.edtValue);
+        RelativeLayout green = (RelativeLayout) findViewById(R.id.layoutGreen);
 
-        gorjeta.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekGorjeta.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
 
             @Override
@@ -44,17 +54,63 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-       
+        maisPessoas.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                numPessoas.setVisibility(View.GONE);
+                numMaisPessoas.setVisibility(View.VISIBLE);
+            }
+        });
 
+    }
 
+    private void calcula(){
 
+        int porcentagem = seekGorjeta.getProgress();
+        int pessoas = getPessoas();
+        double conta = Double.parseDouble(valor.getText().toString());
+        double gorjeta = (conta*porcentagem)/100;
 
+        double total = conta + gorjeta;
 
 
 
     }
 
-    public void more(View v){
+    private int getPessoas(){
+
+        int pessoas = 0;
+
+        if(numPessoas.getCheckedRadioButtonId() == R.id.btnMore){
+            return Integer.parseInt(numMaisPessoas.getText().toString());
+
+        }else{
+
+            switch (numPessoas.getCheckedRadioButtonId()){
+
+                case R.id.person1:
+                    pessoas = 1;
+                    break;
+
+                case R.id.person2:
+                    pessoas = 2;
+                    break;
+
+                case R.id.person3:
+                    pessoas = 3;
+                    break;
+
+                case R.id.person4:
+                    pessoas = 4;
+                    break;
+
+                case R.id.person5:
+                    pessoas = 5;
+                    break;
+            }
+
+        }
+        return pessoas;
 
     }
 }
