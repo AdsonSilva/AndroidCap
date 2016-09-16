@@ -12,8 +12,7 @@
         android:layout_height="300dp"
         android:background="@color/colorPrimary"
         android:padding="@dimen/paddinGreen"
-        android:id="@+id/layoutGreen"
-        android:layout_centerVertical="true">
+        android:id="@+id/layoutGreen">
 
         <ImageView
             android:layout_width="@dimen/icon"
@@ -186,8 +185,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/layoutGreen"
         android:layout_weight="4"
-        android:padding="@dimen/paddingWhite"
-        android:visibility="gone">
+        android:padding="@dimen/paddingWhite">
 
         <ImageView
             android:layout_width="@dimen/iconsWhite"

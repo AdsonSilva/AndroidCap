@@ -1,8 +1,10 @@
 package com.example.huawei.tipcalculator;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
@@ -113,11 +115,6 @@ public class MainActivity extends AppCompatActivity {
         textTotal.setText("R$: " + String.format("%.2f", total));
         textGorjeta.setText("R$: " +String.format("%.2f", gorjeta));
         textPorPessoa.setText("R$: " + String.format("%.2f", porPessoa));
-
-        Animation subir = new TranslateAnimation(0,0, 0,-650);
-        subir.setDuration(1000);
-        layoutGreen.startAnimation(subir);
-
 
     }
 
