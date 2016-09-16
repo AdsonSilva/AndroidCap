@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -13,43 +16,45 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textGorjeta;
+
     private SeekBar seekGorjeta;
     private RadioGroup numPessoas;
     private RadioButton maisPessoas;
     private TextView numMaisPessoas;
     private EditText valor;
+    private Button btnCalular;
+    private Button btnReset;
+    private RelativeLayout green;
+    private TextView textTotal;
+    private TextView textGorjeta;
+    private TextView textPorPessoa;
+
+    private RelativeLayout layoutGreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        seekGorjeta = (SeekBar) findViewById(R.id.seekPercent);
-        textGorjeta = (TextView) findViewById(R.id.seekText);
-        maisPessoas = (RadioButton) findViewById(R.id.btnMore);
-        numPessoas = (RadioGroup) findViewById(R.id.radioGroup);
-        numMaisPessoas = (EditText) findViewById(R.id.edtPersons);
-        valor = (EditText) findViewById(R.id.edtValue);
-        RelativeLayout green = (RelativeLayout) findViewById(R.id.layoutGreen);
+        init();
 
         seekGorjeta.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
+            TextView gorjetaText = (TextView) findViewById(R.id.seekText);
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
-                textGorjeta.setText(progress + "%");
+                gorjetaText.setText(progress + "%");
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                textGorjeta.setText(progress + "%");
+                gorjetaText.setText(progress + "%");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                textGorjeta.setText(progress + "%");
+                gorjetaText.setText(progress + "%");
             }
 
         });
@@ -62,6 +67,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCalular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcula();
+            }
+        });
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset();
+            }
+        });
+
+    }
+
+    private void init(){
+        this.seekGorjeta = (SeekBar) findViewById(R.id.seekPercent);
+        this.maisPessoas = (RadioButton) findViewById(R.id.btnMore);
+        this.numPessoas = (RadioGroup) findViewById(R.id.radioGroup);
+        this.numMaisPessoas = (EditText) findViewById(R.id.edtPersons);
+        this.valor = (EditText) findViewById(R.id.edtValue);
+        this.green = (RelativeLayout) findViewById(R.id.layoutGreen);
+        this.btnCalular = (Button) findViewById(R.id.calculateButton);
+        this.btnReset = (Button) findViewById(R.id.resetButton);
+        this.textTotal = (TextView) findViewById(R.id.valorTotal);
+        this.textGorjeta = (TextView) findViewById(R.id.valorGorjeta);
+        this.textPorPessoa = (TextView) findViewById(R.id.totalPessoa);
+
+        this.layoutGreen = (RelativeLayout) findViewById(R.id.layoutGreen);
+
     }
 
     private void calcula(){
@@ -73,8 +108,28 @@ public class MainActivity extends AppCompatActivity {
 
         double total = conta + gorjeta;
 
+        double porPessoa = total/pessoas;
+
+        textTotal.setText("R$: " + String.format("%.2f", total));
+        textGorjeta.setText("R$: " +String.format("%.2f", gorjeta));
+        textPorPessoa.setText("R$: " + String.format("%.2f", porPessoa));
+
+        Animation subir = new TranslateAnimation(0,0, 0,-650);
+        subir.setDuration(1000);
+        layoutGreen.startAnimation(subir);
 
 
+    }
+
+    public void reset(){
+        textTotal.setText("");
+        textGorjeta.setText("");
+        textPorPessoa.setText("");
+        seekGorjeta.setProgress(10);
+        valor.clearComposingText();
+        numPessoas.check(R.id.person1);
+        numPessoas.setVisibility(View.VISIBLE);
+        numMaisPessoas.setVisibility(View.GONE);
     }
 
     private int getPessoas(){

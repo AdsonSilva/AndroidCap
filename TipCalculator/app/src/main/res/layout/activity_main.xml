@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
     tools:context="com.example.huawei.tipcalculator.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:background="@color/colorPrimary"
         android:padding="@dimen/paddinGreen"
-        android:id="@+id/layoutGreen">
+        android:id="@+id/layoutGreen"
+        android:layout_centerVertical="true">
 
         <ImageView
             android:layout_width="@dimen/icon"
@@ -26,7 +29,7 @@
             android:text="@string/tip"
             android:id="@+id/TextTitle"
             android:textStyle="bold"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:textSize="@dimen/nameAppSize"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imgIcon"
@@ -41,7 +44,7 @@
             android:layout_below="@id/TextTitle"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/white"
             android:textSize="@dimen/ValueSize"
             android:layout_centerHorizontal="true"
             android:inputType="numberDecimal" />
@@ -50,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Porcentagem"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:id="@+id/textPercent"
             android:textStyle="bold"
             android:layout_below="@id/edtValue"
@@ -76,7 +79,7 @@
             android:id="@+id/seekText"
             android:text="10%"
             android:textStyle="bold"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:layout_toEndOf="@id/seekPercent"
             android:layout_alignBottom="@id/seekPercent" />
 
@@ -84,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Numero de Pessoas"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:id="@+id/numPersonsText"
             android:layout_below="@id/seekText"
             android:layout_marginTop="@dimen/marginTopGreen"
@@ -106,8 +109,8 @@
                 android:id="@+id/person1"
                 android:text="1"
                 android:checked="true"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
 
                 />
             <RadioButton
@@ -115,53 +118,161 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/person2"
                 android:text="2"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person3"
                 android:text="3"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"/>
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person4"
                 android:text="4"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"/>
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/person5"
                 android:text="5"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"/>
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnMore"
                 android:text="+"
-                android:buttonTint="@color/grey"
-                android:textColor="@color/grey"/>
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"/>
 
         </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/calulate"
+            android:background="@color/white"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/radioGroup"
+            android:id="@+id/calculateButton"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Quantidade"
             android:id="@+id/edtPersons"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/white"
             android:visibility="gone"
+            android:textAlignment="center"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/numPersonsText"
             android:inputType="number"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layoutGreen"
+        android:layout_weight="4"
+        android:padding="@dimen/paddingWhite"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/iconsWhite"
+            android:layout_height="@dimen/iconsWhite"
+            android:src="@drawable/dollar_ico"
+            android:layout_marginTop="@dimen/marginTopWhiteIcons"
+            android:id="@+id/contaIco"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/contaIco"
+            android:layout_alignTop="@id/contaIco"
+            android:text="Valor total:"
+            android:textSize="@dimen/nameAppSize"
+            android:layout_margin="@dimen/marginTextWhiteIcons"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/valorTotal"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/contaIco"
+            android:textSize="@dimen/nameAppSize"
+            android:layout_margin="@dimen/marginTextWhiteIcons"/>
+
+
+        <ImageView
+            android:layout_width="@dimen/iconsWhite"
+            android:layout_height="@dimen/iconsWhite"
+            android:src="@drawable/percent_ico"
+            android:layout_below="@id/contaIco"
+            android:layout_alignLeft="@id/contaIco"
+            android:layout_marginTop="@dimen/marginTopWhiteIcons"
+            android:id="@+id/percentIco"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/percentIco"
+            android:layout_alignTop="@id/percentIco"
+            android:text="Valor da gorjeta:"
+            android:textSize="@dimen/nameAppSize"
+            android:layout_margin="@dimen/marginTextWhiteIcons"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/valorGorjeta"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/percentIco"
+            android:textSize="@dimen/nameAppSize"
+            android:layout_margin="@dimen/marginTextWhiteIcons"/>
+
+        <ImageView
+            android:layout_width="@dimen/iconsWhite"
+            android:layout_height="@dimen/iconsWhite"
+            android:src="@drawable/person_ico"
+            android:layout_marginTop="@dimen/marginTopWhiteIcons"
+            android:layout_below="@id/percentIco"
+            android:id="@+id/personsIco"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/personsIco"
+            android:layout_alignTop="@id/personsIco"
+            android:text="Total por pessoa:"
+            android:textSize="@dimen/nameAppSize"
+            android:layout_margin="@dimen/marginTextWhiteIcons"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalPessoa"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/personsIco"
+            android:textSize="@dimen/ValueSize"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:text="RESET"
+            android:id="@+id/resetButton"
+            android:textColor="@color/white"/>
 
     </RelativeLayout>
 

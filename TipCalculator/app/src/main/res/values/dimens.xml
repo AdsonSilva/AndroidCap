@@ -6,7 +6,12 @@
     <dimen name="ValueSize">40sp</dimen>
     <dimen name="marginTop">10dp</dimen>
     <dimen name="nameAppSize">20sp</dimen>
-    <dimen name="icon">40dp</dimen>
+    <dimen name="icon">50dp</dimen>
     <dimen name="paddinGreen">10dp</dimen>
+    <dimen name="paddingWhite">40dp</dimen>
     <dimen name="marginTopGreen">30dp</dimen>
+    <dimen name="iconsWhite">40dp</dimen>
+    <dimen name="marginTopWhiteIcons">30dp</dimen>
+    <dimen name="marginTextWhiteIcons">10dp</dimen>
+
 </resources>
