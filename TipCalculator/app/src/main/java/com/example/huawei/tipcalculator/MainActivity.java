@@ -102,19 +102,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calcula(){
+        if(valor.getText().toString().equals("")){
+            valor.setError("Não pode ser vazio");
+        }else {
 
-        int porcentagem = seekGorjeta.getProgress();
-        int pessoas = getPessoas();
-        double conta = Double.parseDouble(valor.getText().toString());
-        double gorjeta = (conta*porcentagem)/100;
+            double conta = Double.parseDouble(valor.getText().toString());
+            int porcentagem = seekGorjeta.getProgress();
+            int pessoas = getPessoas();
+            double gorjeta = (conta * porcentagem) / 100;
 
-        double total = conta + gorjeta;
+            double total = conta + gorjeta;
 
-        double porPessoa = total/pessoas;
+            double porPessoa = total / pessoas;
 
-        textTotal.setText("R$: " + String.format("%.2f", total));
-        textGorjeta.setText("R$: " +String.format("%.2f", gorjeta));
-        textPorPessoa.setText("R$: " + String.format("%.2f", porPessoa));
+            textTotal.setText("R$: " + String.format("%.2f", total));
+            textGorjeta.setText("R$: " + String.format("%.2f", gorjeta));
+            textPorPessoa.setText("R$: " + String.format("%.2f", porPessoa));
+        }
 
     }
 
