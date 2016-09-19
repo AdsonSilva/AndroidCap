@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
         if(numPessoas.getCheckedRadioButtonId() == R.id.btnMore){
             return Integer.parseInt(numMaisPessoas.getText().toString());
 
+
         }else{
 
             switch (numPessoas.getCheckedRadioButtonId()){
