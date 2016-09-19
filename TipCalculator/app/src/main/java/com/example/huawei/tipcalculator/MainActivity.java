@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         textGorjeta.setText("");
         textPorPessoa.setText("");
         seekGorjeta.setProgress(10);
-        valor.clearComposingText();
+        valor.setText("");
         numPessoas.check(R.id.person1);
         numPessoas.setVisibility(View.VISIBLE);
         numMaisPessoas.setVisibility(View.GONE);
