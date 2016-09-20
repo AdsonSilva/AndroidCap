@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FormUser</string>
+
+    <string name="name">Nome</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="birthDate">Data de Nascimento</string>
+</resources>
