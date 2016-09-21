@@ -7,7 +7,7 @@
     tools:context="com.example.huawei.formuser.MainActivity">
 
     <FrameLayout
-        android:id="@+id/formUser"
+        android:id="@+id/form_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

@@ -6,6 +6,7 @@ import android.widget.DatePicker;
 
 public class MainActivity extends AppCompatActivity implements UserForm.OnUserSavedListener{
 
+    private static final String TAG_DETAILS = "user_details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,11 @@ public class MainActivity extends AppCompatActivity implements UserForm.OnUserSa
         getSupportFragmentManager().beginTransaction().replace(R.id.form_user,
                 UserForm.newInstance()).commit();
 
+        if(isTablet()){
+            getSupportFragmentManager().beginTransaction().replace(R.id.detail_user,
+                    UserDetails.newInstance(), TAG_DETAILS).commit();
+        }
+
 
 
     }
@@ -22,12 +28,26 @@ public class MainActivity extends AppCompatActivity implements UserForm.OnUserSa
     @Override
     public void onUserSaved(User user) {
 
-        UserDetails fragment = UserDetails.newInstance(user);
+        if(isTablet()){
+            UserForm.OnUserSavedListener callback =
+                    (UserForm.OnUserSavedListener)getSupportFragmentManager()
+                    .findFragmentByTag(TAG_DETAILS);
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.form_user, fragment)
-                .addToBackStack(null)
-                .commit();
+            callback.onUserSaved(user);
 
+        }else {
+
+            UserDetails fragment = UserDetails.newInstance(user);
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.form_user, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+    }
+
+    private boolean isTablet(){
+        return getResources().getBoolean(R.bool.tablet);
     }
 }

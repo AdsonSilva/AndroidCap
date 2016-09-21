@@ -6,14 +6,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:id="@+id/form_user">
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5">
-
+        android:layout_weight="5"
+        android:id="@+id/detail_user">
     </FrameLayout>
 
 
