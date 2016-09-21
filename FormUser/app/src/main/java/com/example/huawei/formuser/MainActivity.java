@@ -6,21 +6,24 @@ import android.widget.DatePicker;
 
 public class MainActivity extends AppCompatActivity implements UserForm.OnUserSavedListener{
 
-    private static final String FRAGMENT_USER_EDIT = "fragment_form";
-    private static final String FRAGMENT_USER_DETAIL = "fragment_detail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.resolution,
+        getSupportFragmentManager().beginTransaction().replace(R.id.form_user,
                 UserForm.newInstance()).commit();
+
+
 
     }
 
     @Override
     public void onUserSaved(User user) {
+
+        UserDetails fragment = UserDetails.newInstance(user);
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.form_user, fragment)
                 .addToBackStack(null)

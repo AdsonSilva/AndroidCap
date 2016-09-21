@@ -14,7 +14,7 @@
         android:textSize="@dimen/textForm"
         android:textColor="@color/colorAccent"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
         android:id="@+id/nameView"/>
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginView"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/colorAccent"/>
 
     <TextView
         android:layout_marginTop="@dimen/marginForm"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/passwordView"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/colorAccent"/>
 
     <TextView
         android:layout_marginTop="@dimen/marginForm"
@@ -53,10 +53,10 @@
         android:textSize="@dimen/textForm"
         android:textColor="@color/colorAccent"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/emailView"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/colorAccent" />
 
     <TextView
         android:layout_marginTop="@dimen/marginForm"

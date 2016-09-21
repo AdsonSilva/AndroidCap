@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:padding="@dimen/marginForm"
+        android:id="@+id/form_user">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="@dimen/textForm"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/grey"
+            android:inputType="textCapWords"
+            android:id="@+id/nameEdt"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="@dimen/textForm"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginEdt"
+            android:inputType="textCapSentences"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/grey"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textSize="@dimen/textForm"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordEdt"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/grey"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="@dimen/textForm"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailEdt"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/grey"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/birthDate"
+            android:textSize="@dimen/textForm"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nascEdt"
+            android:inputType="date"
+            android:textColor="@color/colorAccent"
+            android:backgroundTint="@color/grey"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/btnSave"
+            android:layout_gravity="end"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
