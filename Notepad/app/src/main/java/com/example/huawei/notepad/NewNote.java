@@ -1,6 +1,7 @@
 package com.example.huawei.notepad;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,18 +25,15 @@ public class NewNote extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Note nota = new Note(noteTitle.getText().toString(), note.getText().toString());
-
-                //saveNote(nota);
-
+                saveNote(noteTitle.getText().toString(), note.getText().toString());
                 finish();
             }
         });
-
-
     }
 
-    private void saveNote(Note note){
-
+    private void saveNote(String titulo, String nota){
+        SharedPreferences notes = getSharedPreferences("notes", 0);
+        SharedPreferences.Editor editor = notes.edit();
+        editor.putString(titulo, nota);
     }
 }
