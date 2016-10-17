@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bloco de Notas</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title">Título</string>
+    <string name="save">Salvar</string>
+    <string name="texto">Digite o texto</string>
+</resources>

@@ -21,4 +21,14 @@ public class Note {
     public String getNote() {
         return note;
     }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(title);
+        sb.append(System.lineSeparator());
+        sb.append(note);
+
+        return sb.toString();
+    }
 }

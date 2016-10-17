@@ -6,6 +6,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+
+import com.example.huawei.notepad.DataBase.DB;
+import com.example.huawei.notepad.DataBase.Repositorio;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,17 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
     private DB dataBase;
     private SQLiteDatabase conn;
+    private GridView gridNotes;
+    private Repositorio repo;
 
+    private ArrayAdapter<String> adpNotas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dataBase = new DB(this);
-
-        conn = dataBase.getReadableDatabase();
-
         addButton = (FloatingActionButton)findViewById(R.id.addButton);
+        gridNotes = (GridView) findViewById(R.id.gridNotes);
+
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,5 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, NewNote.class));
             }
         });
+
+        dataBase = new DB(this);
+        conn = dataBase.getWritableDatabase();
+        repo = new Repositorio(conn);
+        repo.testInsert();
+
+        adpNotas = repo.buscaNotas(this);
+        gridNotes.setAdapter(adpNotas);
+
     }
+
 }

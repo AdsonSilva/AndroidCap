@@ -40,11 +40,11 @@ android {
 
     productFlavors {
         freeFlavor{
-
+            versionName "1.0-free"
         }
 
         paidFlavor{
-
+            versionName "1.0-paid"
         }
     }
 
