@@ -30,21 +30,25 @@ android {
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.releaseConfig
+            applicationIdSuffix ".release"
 
         }
 
         debug {
             debuggable true
+            applicationIdSuffix ".debug"
         }
     }
 
     productFlavors {
         freeFlavor{
             versionName "1.0-free"
+            applicationId "com.example.adson_silva.atividadeaula8"
         }
 
         paidFlavor{
             versionName "1.0-paid"
+            applicationId "com.example.adson_silva.atividadeaula8"
         }
     }
 

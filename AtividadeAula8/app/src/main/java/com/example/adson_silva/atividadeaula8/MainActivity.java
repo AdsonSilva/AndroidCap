@@ -5,23 +5,20 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView buildType, flavor;
+    private TextView buildType, flavor, appId;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         buildType = (TextView) findViewById(R.id.BuildType);
         flavor = (TextView) findViewById(R.id.Flavor);
+        appId = (TextView) findViewById(R.id.appId);
 
-        /*if(getResources().getBoolean(R.bool.Debug)){
-            buildType.setText("DEBUG");
-        }else{
-            buildType.setText("RELEASE");
-        }*/
+
         buildType.setText(BuildConfig.BUILD_TYPE);
-
         flavor.setText(BuildConfig.VERSION_NAME);
+        appId.setText(BuildConfig.APPLICATION_ID);
     }
 }
